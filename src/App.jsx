@@ -1,12 +1,8 @@
 import "./App.css";
-import RegistrationForm from "./RegistrationForm"
+import RegistrationForm from "./RegistrationForm";
 
 function App() {
-  return (
-    <>
-      <RegistrationForm />
-    </>
-  );
+  return <RegistrationForm />;
 }
 
 export default App;
