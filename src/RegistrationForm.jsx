@@ -11,7 +11,6 @@ const RegistrationForm = () => {
   const {
     handleSubmit,
     control,
-    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(ValidateSchema),
@@ -21,8 +20,6 @@ const RegistrationForm = () => {
     alert(JSON.stringify(data));
     setVisible(!visible);
   };
-
-  const password = watch("password");
 
   const RadioGender = {
     male: "Мужской",
@@ -68,8 +65,6 @@ const RegistrationForm = () => {
         name="confirmedPassword"
         control={control}
         errors={errors}
-        required="Поле обязательно для заполнения"
-        validate={(value) => value == password || "Пароли не совпадают"}
         placeholder="Пароль"
         InputName={Input.Password}
       />
@@ -78,7 +73,6 @@ const RegistrationForm = () => {
         name="date"
         control={control}
         errors={errors}
-        required="Поле обязательно для заполнения"
         placeholder="Дата рождения"
         InputName={DatePicker}
       />
@@ -87,7 +81,6 @@ const RegistrationForm = () => {
         name="gender"
         control={control}
         errors={errors}
-        required="Поле обязательно для заполнения"
         placeholder="Пол"
         InputName={Radio}
         RadioValues={RadioGender}
@@ -97,11 +90,6 @@ const RegistrationForm = () => {
         name="phoneNumber"
         control={control}
         errors={errors}
-        required="Поле обязательно для заполнения"
-        validate={(value) =>
-          value.split("").every((num) => !isNaN(num)) ||
-          "Допустимы только цифры"
-        }
         placeholder="Номер телефона"
         InputName={Input}
       />

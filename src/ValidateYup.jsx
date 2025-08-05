@@ -36,4 +36,13 @@ export const ValidateSchema = yup.object().shape({
     .string()
     .required("Поле обязательно для заполнения")
     .oneOf([yup.ref("password")], "Пароли не совпадают"),
+  date: yup.date().required("Поле обязательно для заполнения"),
+  gender: yup.string().required("Поле обязательно для заполнения"),
+  phoneNumber: yup
+    .string()
+    .required("Поле обязательно для заполнения")
+    .matches(
+      /^\+?\d{10,15}$/,
+      "Номер телефона должен содержать от 10 до 15 цифр, можно с ' + '"
+    ),
 });
